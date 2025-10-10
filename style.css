@@ -7,3 +7,11 @@ body {
   margin-inline: max(1em, (100% - 100ch) / 2);
   padding: 2rem;
 }
+
+nav {
+    display: flex;
+}
+
+nav a {
+    flex: 1;
+}
