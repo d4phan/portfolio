@@ -1,3 +1,13 @@
+:root {
+  --color-accent: oklch(88.928% 0.06371 226.042);
+  --color-accent-fallback: #e6d5f5; /* Orange fallback for older browsers */
+}
+
+html {
+  accent-color: var(--color-accent-fallback);
+  accent-color: var(--color-accent);
+}
+
 body {
   font: 100%/1.5 system-ui;
   max-width: 100ch;
@@ -20,8 +30,14 @@ nav a {
 }
 
 nav a.current {
-    border-bottom: 0.4em solid #6b7280;
+    border-bottom: 0.4em solid #868b94;
     padding-bottom: 0.1em; 
+}
+
+nav a:hover {
+    border-bottom: 0.4em solid var(--color-accent-fallback);
+    border-bottom: 0.4em solid var(--color-accent);
+    padding-bottom: 0.1em;
 }
 
 .profile-image {
