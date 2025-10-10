@@ -1,10 +1,8 @@
 :root {
-  --color-accent: oklch(88.928% 0.06371 226.042);
-  --color-accent-fallback: #e6d5f5; /* Orange fallback for older browsers */
+  --color-accent: #d97706;
 }
 
 html {
-  accent-color: var(--color-accent-fallback);
   accent-color: var(--color-accent);
 }
 
@@ -30,12 +28,11 @@ nav a {
 }
 
 nav a.current {
-    border-bottom: 0.4em solid #868b94;
+    border-bottom: 0.4em solid #6b7280;
     padding-bottom: 0.1em; 
 }
 
 nav a:hover {
-    border-bottom: 0.4em solid var(--color-accent-fallback);
     border-bottom: 0.4em solid var(--color-accent);
     padding-bottom: 0.1em;
 }
