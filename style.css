@@ -23,3 +23,10 @@ nav a.current {
     border-bottom: 0.4em solid #6b7280;
     padding-bottom: 0.1em; 
 }
+
+.profile-image {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
