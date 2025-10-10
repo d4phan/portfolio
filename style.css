@@ -16,7 +16,8 @@ nav a {
     text-decoration: none;
     color: inherit;
     text-align: center;
-    padding: 0.5em;
+    padding: 1rem 0.5rem;
+    font-weight: 500;
 }
 
 nav a.current {
