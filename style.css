@@ -75,6 +75,7 @@ button {
     border: 2px solid black; 
     border-radius: 0.25em;
     cursor: pointer;
+    font-weight: 700;
 }
 
 input,
