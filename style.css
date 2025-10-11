@@ -69,10 +69,10 @@ label {
 
 button {
     grid-column: 1 / -1;
-    padding: 0.75em;
-    background-color: var(--color-accent);
-    color: white;
-    border: none;
+    padding: 1em 2em;
+    background-color: #6b7280;
+    color: black;
+    border: 2px solid black; 
     border-radius: 0.25em;
     cursor: pointer;
 }
