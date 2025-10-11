@@ -28,21 +28,18 @@ nav a {
     padding: 0.5em;
 }
 
-/* Gray Border Under Pages */
 nav a.current {
     border-bottom: 0.4em solid #6b7280;
     padding-bottom: 0.1em;
     font-weight: 700;
 }
 
-/* Blue Border Hovering */
 nav a:hover {
     border-bottom: 0.4em solid var(--color-accent);
     padding-bottom: 0.1em;
     background-color: var(--color-accent-light);
 }
 
-/* Profile Image Reshape */
 .profile-image {
     width: 300px;
     height: 300px;
@@ -50,7 +47,6 @@ nav a:hover {
     flex-shrink: 0;
 }
 
-/* Form Typography */
 input,
 textarea,
 button,
@@ -58,22 +54,18 @@ select {
     font: inherit;
 }
 
-/* Form Layout */
-label,
-input,
-textarea,
-select,
-button {
-    display: block;
-}
-
-input,
-textarea,
-select {
-    width: 100%;
-    box-sizing: border-box;
+form {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1em;
 }
 
 label {
-    margin-block: 1em 0.5em;
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: 1 / -1;
+}
+
+button {
+    grid-column: 1 / -1;
 }
