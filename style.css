@@ -29,7 +29,7 @@ nav a {
 }
 
 nav a.current {
-    border-bottom: 0.4em solid #6b7280;
+    border-bottom: 0.4em solid #b0b4bc;
     padding-bottom: 0.1em;
     font-weight: 700;
 }
