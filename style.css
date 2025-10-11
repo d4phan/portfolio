@@ -70,7 +70,7 @@ label {
 button {
     grid-column: 1 / -1;
     padding: 1em 2em;
-    background-color: #6b7280;
+    background-color: #c2c9d6;
     color: black;
     border: 2px solid black; 
     border-radius: 0.25em;
