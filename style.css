@@ -1,5 +1,6 @@
 :root {
-  --color-accent: #c5f5fd;
+  --color-accent: #3bc3db;
+  --color-accent-light: #b7e7f0;
 }
 
 html {
@@ -36,6 +37,7 @@ nav a.current {
 nav a:hover {
     border-bottom: 0.4em solid var(--color-accent);
     padding-bottom: 0.1em;
+    background-color: var(--color-accent-light);
 }
 
 .profile-image {
