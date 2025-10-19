@@ -1,4 +1,5 @@
 :root {
+  color-scheme: light dark;
   --color-accent: #3bc3db;
   --color-accent-light: #b7e7f0;
 }
@@ -15,9 +16,10 @@ body {
 }
 
 nav {
+    --border-color: rgba(107, 115, 128, 0.4);
     display: flex;
     margin-bottom: 2rem;
-    border-bottom: 1px solid #d1d5db;
+    border-bottom: 1px solid var(--border-color);
 }
 
 nav a {
@@ -29,7 +31,7 @@ nav a {
 }
 
 nav a.current {
-    border-bottom: 0.4em solid #6b7280;
+    border-bottom: 0.4em solid var(--border-color);
     padding-bottom: 0.1em;
     font-weight: 700;
 }
@@ -37,7 +39,7 @@ nav a.current {
 nav a:hover {
     border-bottom: 0.4em solid var(--color-accent);
     padding-bottom: 0.1em;
-    background-color: var(--color-accent-light);
+    background-color: rgba(59, 195, 219, 0.15);
 }
 
 .profile-image {
@@ -113,3 +115,11 @@ textarea {
     border: 1px solid #ccc;
     border-radius: 0.25em;
 }
+
+.color-scheme {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 80%;
+}
+
