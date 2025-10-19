@@ -63,6 +63,10 @@ if ("colorScheme" in localStorage) {
     document.documentElement.style.setProperty('color-scheme', savedScheme);
     select.value = savedScheme;
 }
+else {
+    document.documentElement.style.setProperty('color-scheme', 'light');
+    select.value = 'light';
+}
 
 select.addEventListener('input', function (event) {
     const newScheme = event.target.value;
