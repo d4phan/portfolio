@@ -1,62 +1,74 @@
 [
-    {
-        "title": "Data Analysis Dashboard",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum."
-    },
-    {
-        "title": "Machine Learning Predictor",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    },
-    {
-        "title": "Web Scraping Tool",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
-    },
-    {
-        "title": "Statistical Analysis Report",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum."
-    },
-    {
-        "title": "Database Management System",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia."
-    },
-    {
-        "title": "Data Visualization Platform",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit tempor incididunt."
-    },
-    {
-        "title": "Mobile App Backend",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Ut labore et dolore magna aliqua enim ad minim veniam."
-    },
-    {
-        "title": "API Development Project",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo."
-    },
-    {
-        "title": "Algorithm Optimization Study",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Consequat duis aute irure dolor in reprehenderit in voluptate velit."
-    },
-    {
-        "title": "Cloud Computing Solution",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat."
-    },
-    {
-        "title": "Neural Network Model",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Cupidatat non proident sunt in culpa qui officia deserunt mollit anim."
-    },
-    {
-        "title": "Portfolio Website Build",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Id est laborum sed ut perspiciatis unde omnis iste natus error."
-    }
+	{
+		"title": "Data Analysis Dashboard",
+		"year": 2024,
+		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
+		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum."
+	},
+	{
+		"title": "Machine Learning Predictor",
+		"year": 2023,
+		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
+		"description": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+	},
+	{
+		"title": "Web Scraping Tool",
+		"year": 2022,
+		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
+		"description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
+	},
+	{
+		"title": "Project 1",
+		"year": 2023,
+		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
+		"description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum."
+	},
+	{
+		"title": "Project 2",
+		"year": 2021,
+		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
+		"description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia."
+	},
+	{
+		"title": "Project 3",
+		"year": 2024,
+		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
+		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit tempor incididunt."
+	},
+	{
+		"title": "Final Project",
+		"year": 2022,
+		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
+		"description": "Ut labore et dolore magna aliqua enim ad minim veniam."
+	},
+	{
+		"title": "API Development Project",
+		"year": 2025,
+		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
+		"description": "Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo."
+	},
+	{
+		"title": "Algorithm Optimization Study",
+		"year": 2023,
+		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
+		"description": "Consequat duis aute irure dolor in reprehenderit in voluptate velit."
+	},
+	{
+		"title": "Cloud Computing Solution",
+		"year": 2024,
+		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
+		"description": "Esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat."
+	},
+	{
+		"title": "Neural Network Model",
+		"year": 2025,
+		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
+		"description": "Cupidatat non proident sunt in culpa qui officia deserunt mollit anim."
+	},
+	{
+		"title": "Portfolio Website Build",
+		"year": 2025,
+		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
+		"description": "Id est laborum sed ut perspiciatis unde omnis iste natus error."
+	}
 ]
