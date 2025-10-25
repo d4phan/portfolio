@@ -109,3 +109,7 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
 		containerElement.append(article);
 	}
 }
+
+export async function fetchGitHubData(username) {
+	return fetchJSON(`https://api.github.com/users/${username}`);
+}
