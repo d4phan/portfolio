@@ -73,3 +73,39 @@ select.addEventListener('input', function (event) {
     document.documentElement.style.setProperty('color-scheme', newScheme);
     localStorage.colorScheme = newScheme;
 });
+
+export async function fetchJSON(url) {
+	try {
+		const response = await fetch(url);
+		
+		if (!response.ok) {
+			throw new Error(`Failed to fetch projects: ${response.statusText}`);
+		}
+		
+		const data = await response.json();
+		return data;
+	} catch (error) {
+		console.error('Error fetching or parsing JSON data:', error);
+	}
+}
+
+export function renderProjects(projects, containerElement, headingLevel = 'h2') {
+	containerElement.innerHTML = '';
+	
+	for (let project of projects) {
+		const article = document.createElement('article');
+		
+		const heading = document.createElement(headingLevel);
+		heading.textContent = project.title;
+		
+		const img = document.createElement('img');
+		img.src = project.image;
+		img.alt = project.title;
+		
+		const description = document.createElement('p');
+		description.textContent = project.description;
+		
+		article.append(heading, img, description);
+		containerElement.append(article);
+	}
+}
