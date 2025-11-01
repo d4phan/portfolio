@@ -145,3 +145,14 @@ textarea {
 	font-weight: bold;
 	margin: 0;
 }
+
+.project-year {
+    color: #666;
+    font-size: 0.9em;
+    margin-top: 0.5em;
+    font-style: italic;
+}
+
+.project-text {
+    display: block;
+}
