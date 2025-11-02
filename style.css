@@ -226,3 +226,17 @@ path {
 	transition: 300ms;
 	cursor: pointer;
 }
+
+.searchBar {
+	width: 100%;
+	padding: 0.75em;
+	margin-block: 2em;
+	border: 2px solid #ccc;
+	border-radius: 0.5em;
+	font-size: 1rem;
+}
+
+.searchBar:focus {
+	outline: none;
+	border-color: var(--color-accent);
+}
