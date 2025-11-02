@@ -172,7 +172,7 @@ path {
 .legend {
 	flex: 1;
 	display: grid;
-	grid-template-columns: repeat(2, 1fr);
+	grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
 	gap: 1em;
 	padding: 1em;
 	margin: 0;
@@ -181,16 +181,16 @@ path {
 	border-radius: 0.25em;
 }
 
-@media (max-width: 768px) {
-	.legend {
-		grid-template-columns: repeat(3, 1fr);
-		gap: 0.75em;
-	}
+.legend-item {
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
 }
 
-@media (max-width: 500px) {
-	.legend {
-		grid-template-columns: repeat(6, 1fr);
-		gap: 0.5em;
-	}
+.swatch {
+	width: 1em;
+	height: 1em;
+	display: inline-block;
+	background-color: var(--color);
+	border-radius: 0.25em;
 }
