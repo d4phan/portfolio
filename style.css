@@ -172,13 +172,26 @@ path {
 .legend {
 	flex: 1;
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+	grid-template-columns: repeat(3, 1fr);
 	gap: 1em;
 	padding: 1em;
 	margin: 0;
 	list-style: none;
 	border: 1px solid #ccc;
 	border-radius: 0.25em;
+}
+
+@media (max-width: 768px) {
+	.legend {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 500px) {
+	.legend {
+		grid-template-columns: repeat(6, 1fr);
+		gap: 0.5em;
+	}
 }
 
 .legend-item {
