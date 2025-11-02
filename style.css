@@ -148,6 +148,6 @@ textarea {
 
 .project-year {
     font-style: italic;
-    color: #4f4d4d;
+    color: light-dark(#4f4d4d, #ccc);
     margin-top: 0.5rem;
 }
