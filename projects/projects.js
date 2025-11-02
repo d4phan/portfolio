@@ -49,7 +49,7 @@ function renderPieChart(projectsGiven) {
 					projectsTitle.textContent = `${projects.length} Projects`;
 				} else {
 					let selectedYear = data[selectedIndex].label;
-					let filteredProjects = projects.filter((project) => project.year === selectedYear);
+					let filteredProjects = projects.filter((project) => String(project.year) === String(selectedYear));
 					renderProjects(filteredProjects, projectsContainer, 'h2');
 					projectsTitle.textContent = `${filteredProjects.length} Projects`;
 				}
