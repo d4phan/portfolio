@@ -18,7 +18,7 @@ let arcs = arcData.map((d) => arcGenerator(d));
 
 let colors = d3.scaleOrdinal(d3.schemeTableau10);
 
-let svg = d3.select('svg');
+let svg = d3.select('#projects-pie-plot');
 
 arcs.forEach((arc, idx) => {
 	svg
