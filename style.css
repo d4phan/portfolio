@@ -167,10 +167,19 @@ path {
 	gap: 2em;
 	align-items: start;
 	margin-block: 2em;
+	flex-wrap: wrap;
+}
+
+#projects-pie-plot {
+	max-width: 20em;
+	margin-block: 2em;
+	overflow: visible;
+	flex-shrink: 0;
 }
 
 .legend {
 	flex: 1;
+	min-width: 300px;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: 1em;
@@ -188,6 +197,10 @@ path {
 }
 
 @media (max-width: 500px) {
+	.container {
+		flex-direction: column;
+	}
+	
 	.legend {
 		grid-template-columns: repeat(6, 1fr);
 		gap: 0.5em;
