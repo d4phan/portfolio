@@ -16,7 +16,8 @@ let sliceGenerator = d3.pie();
 let arcData = sliceGenerator(data);
 let arcs = arcData.map((d) => arcGenerator(d));
 
-let colors = d3.scaleOrdinal(d3.schemePastel1);
+let customColors = ['#ffb3ba', '#e74c3c', '#388e3c', '#b5e7a0', '#1976d2', '#aec6cf'];
+let colors = d3.scaleOrdinal(customColors);
 
 let svg = d3.select('#projects-pie-plot');
 
