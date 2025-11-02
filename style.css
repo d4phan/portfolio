@@ -16,111 +16,111 @@ body {
 }
 
 nav {
-    --border-color: rgba(107, 115, 128, 0.4);
-    display: flex;
-    margin-bottom: 2rem;
-    border-bottom: 1px solid var(--border-color);
+	--border-color: rgba(107, 115, 128, 0.4);
+	display: flex;
+	margin-bottom: 2rem;
+	border-bottom: 1px solid var(--border-color);
 }
 
 nav a {
-    flex: 1;
-    text-decoration: none;
-    color: inherit;
-    text-align: center;
-    padding: 0.5em;
+	flex: 1;
+	text-decoration: none;
+	color: inherit;
+	text-align: center;
+	padding: 0.5em;
 }
 
 nav a.current {
-    border-bottom: 0.4em solid var(--border-color);
-    padding-bottom: 0.1em;
-    font-weight: 700;
+	border-bottom: 0.4em solid var(--border-color);
+	padding-bottom: 0.1em;
+	font-weight: 700;
 }
 
 nav a:hover {
-    border-bottom: 0.4em solid var(--color-accent);
-    padding-bottom: 0.1em;
-    background-color: rgba(59, 195, 219, 0.15);
+	border-bottom: 0.4em solid var(--color-accent);
+	padding-bottom: 0.1em;
+	background-color: rgba(59, 195, 219, 0.15);
 }
 
 .profile-image {
-    width: 300px;
-    height: 300px;
-    object-fit: cover;
-    flex-shrink: 0;
+	width: 300px;
+	height: 300px;
+	object-fit: cover;
+	flex-shrink: 0;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    line-height: 1.1;
-    text-wrap: balance;
+	line-height: 1.1;
+	text-wrap: balance;
 }
 
 h1 {
-    font-size: 400%; 
+	font-size: 400%; 
 }
 
 .projects {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
-    gap: 1em;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+	gap: 1em;
 }
 
 .projects article {
-    display: grid;
-    grid-template-rows: subgrid;
-    grid-row: span 3;
+	display: grid;
+	grid-template-rows: subgrid;
+	grid-row: span 3;
 }
 
 .projects article h2 {
-    margin: 0;
+	margin: 0;
 }
 
 .projects article img {
-    width: 100%;
-    height: auto;
+	width: 100%;
+	height: auto;
 }
 
 input,
 textarea,
 button,
 select {
-    font: inherit;
+	font: inherit;
 }
 
 form {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 1em;
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: 1em;
 }
 
 label {
-    display: grid;
-    grid-template-columns: subgrid;
-    grid-column: 1 / -1;
-    align-items: start;
+	display: grid;
+	grid-template-columns: subgrid;
+	grid-column: 1 / -1;
+	align-items: start;
 }
 
 button {
-    grid-column: 1 / -1;
-    padding: 0.3em 2em;
-    background-color: #6b7280;
-    color: black;
-    border: 2px solid black;
-    border-radius: 0.25em;
-    cursor: pointer;
+	grid-column: 1 / -1;
+	padding: 0.3em 2em;
+	background-color: #6b7280;
+	color: black;
+	border: 2px solid black;
+	border-radius: 0.25em;
+	cursor: pointer;
 }
 
 input,
 textarea {
-    padding: 0.5em;
-    border: 1px solid #ccc;
-    border-radius: 0.25em;
+	padding: 0.5em;
+	border: 1px solid #ccc;
+	border-radius: 0.25em;
 }
 
 .color-scheme {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    font-size: 80%;
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	font-size: 80%;
 }
 
 #profile-stats dl {
@@ -147,19 +147,9 @@ textarea {
 }
 
 .project-year {
-    font-style: italic;
-    color: light-dark(#4f4d4d, #ccc);
-    margin-top: 0.5rem;
-}
-
-#projects-pie-plot {
-	max-width: 20em;
-	margin-block: 2em;
-	overflow: visible;
-}
-
-path {
-	transition: 300ms;
+	font-style: italic;
+	color: light-dark(#4f4d4d, #ccc);
+	margin-top: 0.5rem;
 }
 
 .container {
@@ -174,6 +164,25 @@ path {
 	min-width: 100px;
 	flex-shrink: 1;
 	overflow: visible;
+}
+
+#projects-pie-plot:has(path:hover) {
+	path:not(:hover) {
+		opacity: 0.5;
+	}
+}
+
+path {
+	transition: 300ms;
+	cursor: pointer;
+}
+
+.selected {
+	--color: oklch(60% 45% 0) !important;
+}
+
+.selected:is(path) {
+	fill: var(--color);
 }
 
 .legend {
@@ -220,11 +229,6 @@ path {
 	display: inline-block;
 	background-color: var(--color);
 	border-radius: 0.25em;
-}
-
-path {
-	transition: 300ms;
-	cursor: pointer;
 }
 
 .searchBar {
