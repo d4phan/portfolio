@@ -171,14 +171,14 @@ path {
 
 #projects-pie-plot {
 	max-width: 20em;
-	min-width: 150px;
+	min-width: 100px;
 	flex-shrink: 1;
 	overflow: visible;
 }
 
 .legend {
 	flex: 1;
-	min-width: 250px;
+	min-width: 200px;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: 1em;
@@ -195,20 +195,16 @@ path {
 	}
 }
 
-@media (max-width: 600px) {
-	.container {
-		flex-direction: column;
-		align-items: stretch;
-	}
-	
+@media (max-width: 500px) {
 	#projects-pie-plot {
-		max-width: 15em;
-		margin-inline: auto;
+		max-width: 12em;
+		min-width: 80px;
 	}
 	
 	.legend {
-		grid-template-columns: repeat(6, 1fr);
+		grid-template-columns: 1fr;
 		gap: 0.5em;
+		min-width: 150px;
 	}
 }
 
@@ -228,4 +224,5 @@ path {
 
 path {
 	transition: 300ms;
+	cursor: pointer;
 }
