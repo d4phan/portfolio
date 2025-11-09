@@ -44,7 +44,37 @@ function processCommits(data) {
         });
 }
 
+function renderCommitInfo(data, commits) {
+    const dl = d3.select('#stats').append('dl').attr('class', 'stats');
+
+    dl.append('dt').html('Total <abbr title="Lines of code">LOC</abbr>');
+    dl.append('dd').text(data.length);
+
+    dl.append('dt').text('Total commits');
+    dl.append('dd').text(commits.length);
+
+    let files = new Set(data.map(d => d.file)).size;
+    dl.append('dt').text('Number of files');
+    dl.append('dd').text(files);
+
+    let filesByName = d3.group(data, d => d.file);
+    let avgFileLength = d3.mean(filesByName.values(), lines => lines.length);
+    dl.append('dt').text('Average file length');
+    dl.append('dd').text(avgFileLength.toFixed(2) + ' lines');
+
+    let avgLineLength = d3.mean(data, d => d.length);
+    dl.append('dt').text('Average line length');
+    dl.append('dd').text(avgLineLength.toFixed(2) + ' characters');
+
+    let dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    let commitsByDay = d3.rollup(commits, v => v.length, d => d.datetime.getDay());
+    let mostActiveDay = d3.greatest(Array.from(commitsByDay), ([day, count]) => count);
+    dl.append('dt').text('Most active day');
+    dl.append('dd').text(dayNames[mostActiveDay[0]] + ' (' + mostActiveDay[1] + ' commits)');
+}
+
 let data = await loadData();
 let commits = processCommits(data);
-console.log(commits);
+
+renderCommitInfo(data, commits);
 

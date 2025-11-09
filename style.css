@@ -244,3 +244,20 @@ path {
 	outline: none;
 	border-color: var(--color-accent);
 }
+
+.stats {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.5em 1em;
+    max-width: 600px;
+}
+
+.stats dt {
+    font-weight: bold;
+    text-align: right;
+}
+
+.stats dd {
+    margin: 0;
+}
+
