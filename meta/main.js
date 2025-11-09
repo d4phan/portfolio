@@ -22,7 +22,7 @@ function processCommits(data) {
       
       let ret = {
         id: commit,
-        url: 'https://github.com/YOUR_USERNAME/YOUR_REPO/commit/' + commit,
+        url: 'https://github.com/d4phan/portfolio/commit/' + commit,
         author,
         date,
         time,
