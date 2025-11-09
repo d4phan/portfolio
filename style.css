@@ -261,3 +261,11 @@ path {
     margin: 0;
 }
 
+.gridlines line {
+    stroke: #ddd;
+    stroke-opacity: 0.7;
+}
+
+.gridlines path {
+    stroke: none;
+}

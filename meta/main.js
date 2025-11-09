@@ -38,3 +38,11 @@ function renderCommitInfo(data, commits) {
     dl.append('dd').text(`${mostActivePeriod[0]} (${mostActivePeriod[1]} commits)`);
 }
 
+let data = await loadData();
+let commits = processCommits(data);
+
+renderCommitInfo(data, commits);
+renderScatterPlot(data, commits);
+
+
+
