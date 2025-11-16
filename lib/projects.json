@@ -1,9 +1,9 @@
 [
 	{
-		"title": "Data Analysis Dashboard",
-		"year": 2024,
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
-		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, voluptatum."
+		"title": "Bikewatching",
+		"year": 2025,
+		"image": "images/bikewatch.jpg",
+		"description": "An interactive visualzation of Boston Bluebikes traffic patterns with time-based filtering, bike station activity, and bike lane routes acros Boston and Cambridge."
 	},
 	{
 		"title": "Machine Learning Predictor",
