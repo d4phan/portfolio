@@ -204,27 +204,18 @@ function onTimeSliderChange() {
 }
 
 function renderScatterPlot(data, commits) {
-    const dots = svg.append('g').attr('class', 'dots');
+    const width = 1000;
+    const height = 600;
+    const margin = { top: 10, right: 10, bottom: 30, left: 20 };
 
-    dots.selectAll('circle')
-        .data(sortedCommits, (d) => d.id)
-        .join('circle')
-        .attr('cx', d => xScale(d.datetime))
-        .attr('cy', d => yScale(d.hourFrac))
-        .attr('r', d => rScale(d.totalLines))
-        .attr('fill', 'steelblue')
-        .style('fill-opacity', 0.7)
-        .on('mouseenter', (event, commit) => {
-            d3.select(event.currentTarget).style('fill-opacity', 1);
-            renderTooltipContent(commit);
-            updateTooltipVisibility(true);
-            updateTooltipPosition(event);
-        })
-        .on('mouseleave', (event) => {
-            d3.select(event.currentTarget).style('fill-opacity', 0.7);
-            updateTooltipVisibility(false);
-        });
-}
+    const usableArea = {
+        top: margin.top,
+        right: width - margin.right,
+        bottom: height - margin.bottom,
+        left: margin.left,
+        width: width - margin.left - margin.right,
+        height: height - margin.top - margin.bottom,
+    };
 
     const svg = d3
         .select('#chart')
@@ -280,7 +271,7 @@ function renderScatterPlot(data, commits) {
     const dots = svg.append('g').attr('class', 'dots');
 
     dots.selectAll('circle')
-        .data(sortedCommits)
+        .data(sortedCommits, (d) => d.id)
         .join('circle')
         .attr('cx', d => xScale(d.datetime))
         .attr('cy', d => yScale(d.hourFrac))
