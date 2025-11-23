@@ -6,6 +6,8 @@ let timeScale;
 let commitMaxTime;
 let filteredCommits;
 let colors = d3.scaleOrdinal(d3.schemeTableau10);
+let data;
+let commits;
 
 async function loadData() {
     const data = await d3.csv('loc.csv', (row) => ({
@@ -67,24 +69,53 @@ function updateFileDisplay(filteredCommits) {
         .join(
             (enter) =>
                 enter.append('div').call((div) => {
-                    div.append('dt').call((dt) => {
-                        dt.append('code');
-                        dt.append('small');
-                    });
+                    div.append('dt').append('code');
                     div.append('dd');
                 }),
         );
 
     filesContainer.select('dt > code').text((d) => d.name);
-    filesContainer.select('dt > small').text((d) => `${d.lines.length} lines`);
 
     filesContainer
         .selectAll('dd')
         .selectAll('div')
-        .data((d) => d.lines)
+        .data((d) => d.lines, (d) => `${d.file}-${d.line}`)
         .join('div')
         .attr('class', 'loc')
         .attr('style', (d) => `--color: ${colors(d.type)}`);
+}
+
+function updateCommitInfo(filteredCommits) {
+    const lines = filteredCommits.flatMap((d) => d.lines);
+    
+    const stats = [
+        { label: 'COMMITS', value: filteredCommits.length },
+        { label: 'FILES', value: d3.group(lines, d => d.file).size },
+        { label: 'TOTAL LOC', value: lines.length },
+        { 
+            label: 'MAX DEPTH', 
+            value: lines.length > 0 ? d3.max(lines, d => d.depth) : 0
+        },
+        { 
+            label: 'LONGEST LINE', 
+            value: lines.length > 0 ? d3.max(lines, d => d.length) : 0
+        },
+        { 
+            label: 'MAX LINES', 
+            value: lines.length > 0 ? d3.max(
+                d3.rollups(lines, v => d3.max(v, d => d.line), d => d.file),
+                d => d[1]
+            ) : 0
+        }
+    ];
+
+    const container = d3.select('#stats');
+    
+    const statBoxes = container
+        .selectAll('.stat-box')
+        .data(stats);
+
+    statBoxes.select('.stat-value').text(d => d.value);
 }
 
 function renderCommitInfo(data, commits) {
@@ -234,6 +265,7 @@ function onTimeSliderChange() {
     filteredCommits = commits.filter((d) => d.datetime <= commitMaxTime);
     updateScatterPlot(data, filteredCommits);
     updateFileDisplay(filteredCommits);
+    updateCommitInfo(filteredCommits);
 }
 
 function renderScatterPlot(data, commits) {
@@ -379,8 +411,8 @@ function updateScatterPlot(data, commits) {
         });
 }
 
-let data = await loadData();
-let commits = processCommits(data);
+data = await loadData();
+commits = processCommits(data);
 
 timeScale = d3
     .scaleTime()
@@ -399,4 +431,3 @@ updateFileDisplay(filteredCommits);
 
 document.getElementById('commit-progress').addEventListener('input', onTimeSliderChange);
 onTimeSliderChange();
-
