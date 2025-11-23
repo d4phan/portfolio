@@ -16,13 +16,10 @@
             This page includes stats about the code of this website.
         </p>
 
-        <div style="display: flex; align-items: baseline; gap: 1em; margin-bottom: 2em;">
-            <label style="flex: 1; display: flex; align-items: baseline; gap: 0.5em;">
-                Show commits until:
-                <input type="range" id="commit-progress" min="0" max="100" value="100" 
-                       style="flex: 1;">
-                <time id="commit-time" style="margin-left: auto;"></time>
-            </label>
+        <div class="slider-container">
+            <label for="commit-progress">Show commits until:</label>
+            <input type="range" id="commit-progress" min="0" max="100" value="100">
+            <time id="commit-time"></time>
         </div>
         
         <div id="stats"></div>

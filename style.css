@@ -86,6 +86,40 @@ select {
     font: inherit;
 }
 
+input,
+textarea {
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 0.25em;
+}
+
+.slider-container {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 1em;
+    align-items: center;
+    margin-bottom: 2em;
+    padding: 1em;
+    background: rgba(0, 0, 0, 0.02);
+    border-radius: 8px;
+}
+
+.slider-container label {
+    white-space: nowrap;
+    font-weight: 600;
+}
+
+.slider-container input[type="range"] {
+    width: 100%;
+}
+
+.slider-container time {
+    min-width: 250px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
 form {
     display: grid;
     grid-template-columns: auto 1fr;
@@ -107,13 +141,6 @@ button {
     border: 2px solid black;
     border-radius: 0.25em;
     cursor: pointer;
-}
-
-input,
-textarea {
-    padding: 0.5em;
-    border: 1px solid #ccc;
-    border-radius: 0.25em;
 }
 
 .color-scheme {
@@ -427,16 +454,6 @@ circle.selected {
     }
 }
 
-circle {
-    transition: 200ms;
-    transform-origin: center;
-    transform-box: fill-box;
-    
-    @starting-style {
-        r: 0;
-    }
-}
-
 #scrolly-1 {
     position: relative;
     display: flex;
@@ -481,4 +498,5 @@ circle {
 .step a:hover {
     text-decoration: underline;
 }
+
 
