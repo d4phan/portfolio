@@ -436,3 +436,49 @@ circle {
         r: 0;
     }
 }
+
+#scrolly-1 {
+    position: relative;
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 3em;
+}
+
+#scrolly-1 > * {
+    flex: 1;
+}
+
+#scatter-story {
+    position: relative;
+}
+
+#scatter-plot {
+    position: sticky;
+    top: 0;
+    left: 0;
+    bottom: auto;
+    height: 50vh;
+}
+
+.step {
+    padding: 2em;
+    margin-bottom: 50vh;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.step:last-child {
+    margin-bottom: 0;
+}
+
+.step a {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.step a:hover {
+    text-decoration: underline;
+}
+
