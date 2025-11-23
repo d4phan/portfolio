@@ -116,6 +116,33 @@ textarea {
     border-radius: 0.25em;
 }
 
+.slider-container {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 1em;
+    align-items: center;
+    margin-bottom: 2em;
+    padding: 1em;
+    background: rgba(0, 0, 0, 0.02);
+    border-radius: 8px;
+}
+
+.slider-container label {
+    white-space: nowrap;
+    font-weight: 600;
+}
+
+.slider-container input[type="range"] {
+    width: 100%;
+}
+
+.slider-container time {
+    min-width: 250px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
 .color-scheme {
     position: absolute;
     top: 1rem;
@@ -427,49 +454,86 @@ circle.selected {
     }
 }
 
-circle {
-    transition: 200ms;
-    transform-origin: center;
-    transform-box: fill-box;
-    
-    @starting-style {
-        r: 0;
-    }
-}
-
 #scrolly-1 {
     position: relative;
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
     margin-bottom: 3em;
-}
-
-#scrolly-1 > * {
-    flex: 1;
+    min-height: 100vh;
+    margin-left: calc(-1 * max(1em, (100vw - 100ch) / 2));
+    margin-right: calc(-1 * max(1em, (100vw - 100ch) / 2));
+    padding-left: max(1em, (100vw - 100ch) / 2);
+    padding-right: max(1em, (100vw - 100ch) / 2);
 }
 
 #scatter-story {
     position: relative;
+    flex: 0 0 350px;
+    max-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-right: 1rem;
+}
+
+#scatter-story::-webkit-scrollbar {
+    width: 8px;
+}
+
+#scatter-story::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+#scatter-story::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+#scatter-story::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 
 #scatter-plot {
     position: sticky;
-    top: 0;
-    left: 0;
-    bottom: auto;
-    height: 50vh;
+    top: 2rem;
+    flex: 1;
+    height: calc(100vh - 4rem);
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+}
+
+#scatter-plot #chart {
+    flex: 1;
+    min-height: 500px;
+}
+
+#scatter-plot #chart svg {
+    width: 100%;
+    height: 100%;
+}
+
+#scatter-plot #selection-count {
+    margin-top: 1em;
+    text-align: center;
+    font-weight: 600;
 }
 
 .step {
-    padding: 2em;
-    margin-bottom: 50vh;
-    background: rgba(255, 255, 255, 0.8);
+    padding: 1.5em;
+    margin-bottom: 40vh;
+    background: rgba(255, 255, 255, 0.95);
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid var(--color-accent);
+}
+
+.step:first-child {
+    margin-top: 20vh;
 }
 
 .step:last-child {
-    margin-bottom: 0;
+    margin-bottom: 60vh;
 }
 
 .step a {
@@ -482,3 +546,35 @@ circle {
     text-decoration: underline;
 }
 
+@media (max-width: 1024px) {
+    #scrolly-1 {
+        flex-direction: column;
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    
+    #scatter-story {
+        flex: none;
+        max-height: 400px;
+        margin-bottom: 2rem;
+    }
+    
+    #scatter-plot {
+        position: relative;
+        height: 600px;
+    }
+    
+    .step {
+        margin-bottom: 2vh;
+    }
+    
+    .step:first-child {
+        margin-top: 0;
+    }
+    
+    .step:last-child {
+        margin-bottom: 2vh;
+    }
+}

@@ -271,9 +271,13 @@ function onTimeSliderChange() {
 }
 
 function renderScatterPlot(data, commits) {
-    const width = 1000;
-    const height = 600;
-    const margin = { top: 10, right: 10, bottom: 30, left: 20 };
+    const container = document.getElementById('chart');
+    const containerWidth = container.clientWidth || 1000;
+    const containerHeight = container.clientHeight || 600;
+    
+    const width = Math.max(containerWidth, 800);
+    const height = Math.max(containerHeight, 500);
+    const margin = { top: 10, right: 10, bottom: 50, left: 50 };
 
     const usableArea = {
         top: margin.top,
@@ -287,7 +291,10 @@ function renderScatterPlot(data, commits) {
     const svg = d3
         .select('#chart')
         .append('svg')
+        .attr('width', '100%')
+        .attr('height', '100%')
         .attr('viewBox', `0 0 ${width} ${height}`)
+        .attr('preserveAspectRatio', 'xMidYMid meet')
         .style('overflow', 'visible');
 
     xScale = d3
