@@ -201,29 +201,20 @@ function renderSelectionCount(selection) {
     const selectedCommits = selection
         ? filteredCommits.filter(d => isCommitSelected(selection, d))
         : [];
-    
-    const countElement = document.querySelector('#selection-count');
-    countElement.textContent = `${
-        selectedCommits.length || 'No'
-    } commits selected`;
-    
+
     return selectedCommits;
 }
 
-function renderLanguageBreakdown(selection) {
-    const selectedCommits = selection
-        ? filteredCommits.filter(d => isCommitSelected(selection, d))
-        : [];
-
+function renderLanguageBreakdown(commitsToUse) {
     const container = document.getElementById('language-breakdown');
+    const commits = commitsToUse || filteredCommits;
 
-    if (selectedCommits.length === 0) {
-        container.innerHTML = '';
+    if (!commits || commits.length === 0) {
+        container.innerHTML = '<p>No data available</p>';
         return;
     }
 
-    const requiredCommits = selectedCommits.length ? selectedCommits : filteredCommits;
-    const lines = requiredCommits.flatMap(d => d.lines);
+    const lines = commits.flatMap(d => d.lines);
 
     const breakdown = d3.rollup(
         lines,
@@ -289,30 +280,35 @@ function hideCommitDetails() {
 
 function brushed(event) {
     const selection = event.selection;
-    
+
     d3.selectAll('circle').classed('selected', d =>
         isCommitSelected(selection, d)
     );
-    
-    renderSelectionCount(selection);
-    renderLanguageBreakdown(selection);
+
+    const selectedCommits = renderSelectionCount(selection);
+    if (selectedCommits.length > 0) {
+        renderLanguageBreakdown(selectedCommits);
+    } else {
+        renderLanguageBreakdown(filteredCommits);
+    }
 }
 
 function onTimeSliderChange() {
     const slider = document.getElementById('commit-progress');
     commitProgress = slider.value;
     commitMaxTime = timeScale.invert(commitProgress);
-    
+
     const timeElement = document.getElementById('commit-time');
     timeElement.textContent = commitMaxTime.toLocaleString('en-US', {
         dateStyle: 'long',
         timeStyle: 'short'
     });
-    
+
     filteredCommits = commits.filter((d) => d.datetime <= commitMaxTime);
     updateScatterPlot(data, filteredCommits);
     updateFileDisplay(filteredCommits);
     updateCommitInfo(filteredCommits);
+    renderLanguageBreakdown(filteredCommits);
 }
 
 function renderScatterPlot(data, commits) {
@@ -411,19 +407,6 @@ function renderScatterPlot(data, commits) {
         .on('click', (event, commit) => {
             event.stopPropagation();
             updateCommitDetails(commit);
-            // Also update language breakdown for this commit
-            const singleCommitLines = commit.lines || [];
-            const breakdown = d3.rollup(singleCommitLines, v => v.length, d => d.type);
-            const container = document.getElementById('language-breakdown');
-            container.innerHTML = '';
-            for (const [language, count] of breakdown) {
-                const proportion = count / singleCommitLines.length;
-                const formatted = d3.format('.1~%')(proportion);
-                container.innerHTML += `
-                    <dt>${language}</dt>
-                    <dd>${count} lines (${formatted})</dd>
-                `;
-            }
         });
 
     svg.call(d3.brush().on('start brush end', brushed));
@@ -485,19 +468,6 @@ function updateScatterPlot(data, commits) {
         .on('click', (event, commit) => {
             event.stopPropagation();
             updateCommitDetails(commit);
-            // Also update language breakdown for this commit
-            const singleCommitLines = commit.lines || [];
-            const breakdown = d3.rollup(singleCommitLines, v => v.length, d => d.type);
-            const container = document.getElementById('language-breakdown');
-            container.innerHTML = '';
-            for (const [language, count] of breakdown) {
-                const proportion = count / singleCommitLines.length;
-                const formatted = d3.format('.1~%')(proportion);
-                container.innerHTML += `
-                    <dt>${language}</dt>
-                    <dd>${count} lines (${formatted})</dd>
-                `;
-            }
         });
 }
 
@@ -526,6 +496,7 @@ filteredCommits = commits;
 renderCommitInfo(data, commits);
 renderScatterPlot(data, commits);
 updateFileDisplay(filteredCommits);
+renderLanguageBreakdown(filteredCommits);
 
 document.getElementById('commit-progress').addEventListener('input', onTimeSliderChange);
 onTimeSliderChange();

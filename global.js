@@ -103,30 +103,6 @@ document.body.insertAdjacentHTML(
 	`
 );
 
-// Email popup functionality
-const emailToggle = document.getElementById('email-toggle');
-const emailPopup = document.getElementById('email-popup');
-const emailPopupClose = document.getElementById('email-popup-close');
-
-if (emailToggle && emailPopup) {
-	emailToggle.addEventListener('click', () => {
-		emailPopup.hidden = !emailPopup.hidden;
-	});
-
-	emailPopupClose?.addEventListener('click', () => {
-		emailPopup.hidden = true;
-	});
-
-	// Close popup when clicking outside
-	document.addEventListener('click', (e) => {
-		if (!emailPopup.hidden &&
-			!emailPopup.contains(e.target) &&
-			!emailToggle.contains(e.target)) {
-			emailPopup.hidden = true;
-		}
-	});
-}
-
 const select = document.querySelector('.color-scheme select');
 
 if ("colorScheme" in localStorage) {
