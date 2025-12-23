@@ -1,4 +1,4 @@
-console.log('IT'S ALIVE!');
+console.log('IT’S ALIVE!');
 
 function $$(selector, context = document) {
 	return Array.from(context.querySelectorAll(selector));
@@ -14,13 +14,6 @@ let pages = [
 ];
 
 let nav = document.createElement('nav');
-nav.style.position = 'fixed';
-nav.style.top = '0';
-nav.style.left = '0';
-nav.style.right = '0';
-nav.style.zIndex = '1000';
-nav.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-nav.style.backdropFilter = 'blur(10px)';
 document.body.prepend(nav);
 
 for (let p of pages) {
@@ -44,6 +37,7 @@ for (let p of pages) {
 	nav.append(a);
 }
 
+<<<<<<< HEAD
 // Update active nav link based on scroll position
 const updateActiveNav = () => {
 	const sections = document.querySelectorAll('.page-section');
@@ -68,6 +62,8 @@ if (scrollContainer) {
 }
 updateActiveNav();
 
+=======
+>>>>>>> parent of d22be70 (Scrolltelling for whole page)
 document.body.insertAdjacentHTML(
 	'afterbegin',
 	`

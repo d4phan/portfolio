@@ -6,11 +6,11 @@
 
 html {
     accent-color: var(--color-accent);
-    scroll-behavior: smooth;
 }
 
 body {
     font: 100%/1.5 system-ui;
+<<<<<<< HEAD
     margin: 0;
     padding: 0;
     overflow-x: hidden;
@@ -35,6 +35,11 @@ body {
     max-width: 100ch;
     margin-inline: max(1em, (100% - 100ch) / 2);
     padding-top: 5rem;
+=======
+    max-width: 100ch;
+    margin-inline: max(1em, (100% - 100ch) / 2);
+    padding: 2rem;
+>>>>>>> parent of d22be70 (Scrolltelling for whole page)
 }
 
 nav {
@@ -74,6 +79,7 @@ nav a:hover {
 h1, h2, h3, h4, h5, h6 {
     line-height: 1.1;
     text-wrap: balance;
+<<<<<<< HEAD
 }
 
 h1 {
@@ -81,18 +87,35 @@ h1 {
 }
 
 .projects, .projects-full {
+=======
+}
+
+h1 {
+    font-size: 400%; 
+}
+
+.projects {
+>>>>>>> parent of d22be70 (Scrolltelling for whole page)
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
     gap: 1em;
 }
 
+<<<<<<< HEAD
 .projects article, .projects-full article {
+=======
+.projects article {
+>>>>>>> parent of d22be70 (Scrolltelling for whole page)
     display: grid;
     grid-template-rows: subgrid;
     grid-row: span 3;
 }
 
+<<<<<<< HEAD
 .projects article h2, .projects-full article h2 {
+=======
+.projects article h2 {
+>>>>>>> parent of d22be70 (Scrolltelling for whole page)
     margin: 0;
 }
 
