@@ -5,17 +5,12 @@ function $$(selector, context = document) {
 }
 
 let pages = [
-	{ url: '', title: 'Home' },
-	{ url: 'projects/', title: 'Projects' },
-	{ url: 'resume/', title: 'CV' },
-	{ url: 'contact/', title: 'Contact' },
-	{ url: 'meta/', title: 'Meta' },
+	{ url: '#page-home', title: 'Home', section: 'page-home' },
+	{ url: '#page-projects', title: 'Projects', section: 'page-projects' },
+	{ url: '#page-resume', title: 'CV', section: 'page-resume' },
+	{ url: '#page-contact', title: 'Contact', section: 'page-contact' },
 	{ url: 'https://github.com/d4phan', title: 'GitHub' }
 ];
-
-const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
-	? "/"
-	: "/portfolio/";
 
 let nav = document.createElement('nav');
 nav.style.position = 'fixed';
@@ -28,49 +23,49 @@ nav.style.backdropFilter = 'blur(10px)';
 document.body.prepend(nav);
 
 for (let p of pages) {
-	let url = p.url;
-	let title = p.title;
-
-	if (!url.startsWith('http')) {
-		url = BASE_PATH + url;
-	}
-
 	let a = document.createElement('a');
-	a.href = url;
-	a.textContent = title;
+	a.href = p.url;
+	a.textContent = p.title;
 
-	if (a.host === location.host && a.pathname === location.pathname) {
-		a.classList.add('current');
-	}
-
-	if (a.host !== location.host) {
+	if (p.url.startsWith('http')) {
 		a.target = "_blank";
+	} else {
+		// Smooth scroll to section
+		a.addEventListener('click', (e) => {
+			e.preventDefault();
+			const section = document.getElementById(p.section);
+			if (section) {
+				section.scrollIntoView({ behavior: 'smooth' });
+			}
+		});
 	}
 
 	nav.append(a);
 }
 
-// Scroll animations
-const observerOptions = {
-	root: null,
-	rootMargin: '0px',
-	threshold: 0.3
-};
+// Update active nav link based on scroll position
+const updateActiveNav = () => {
+	const sections = document.querySelectorAll('.page-section');
 
-const sectionObserver = new IntersectionObserver((entries) => {
-	entries.forEach(entry => {
-		if (entry.isIntersecting) {
-			entry.target.querySelector('.section-content').style.animation = 'fadeInUp 0.8s ease-out forwards';
+	sections.forEach(section => {
+		const rect = section.getBoundingClientRect();
+		if (rect.top >= -100 && rect.top <= 100) {
+			// Remove current class from all nav links
+			nav.querySelectorAll('a').forEach(link => link.classList.remove('current'));
+			// Add current class to matching nav link
+			const matchingLink = nav.querySelector(`a[href="#${section.id}"]`);
+			if (matchingLink) {
+				matchingLink.classList.add('current');
+			}
 		}
 	});
-}, observerOptions);
+};
 
-document.addEventListener('DOMContentLoaded', () => {
-	const sections = document.querySelectorAll('.scroll-section');
-	sections.forEach(section => {
-		sectionObserver.observe(section);
-	});
-});
+const scrollContainer = document.querySelector('.scroll-container');
+if (scrollContainer) {
+	scrollContainer.addEventListener('scroll', updateActiveNav);
+}
+updateActiveNav();
 
 document.body.insertAdjacentHTML(
 	'afterbegin',
