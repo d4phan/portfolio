@@ -177,10 +177,11 @@ textarea {
 }
 
 .color-scheme {
-    position: absolute;
-    top: 1rem;
+    position: fixed;
+    top: 3.5rem;
     right: 1rem;
     font-size: 80%;
+    z-index: 999;
 }
 
 #profile-stats dl {
