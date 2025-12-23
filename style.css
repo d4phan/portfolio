@@ -30,6 +30,13 @@ body {
     box-sizing: border-box;
 }
 
+/* Meta section needs more height for all its content */
+.page-section#meta {
+    min-height: auto;
+    height: auto;
+    scroll-snap-align: start;
+}
+
 .page-section main {
     max-width: 100ch;
     margin-inline: auto;
@@ -528,18 +535,14 @@ circle.selected {
 }
 
 #scatter-plot {
-    position: sticky;
-    top: 2rem;
-    flex: 1;
-    height: calc(100vh - 4rem);
-    display: flex;
-    flex-direction: column;
-    align-self: flex-start;
+    position: relative;
+    width: 100%;
+    margin-bottom: 2rem;
 }
 
 #scatter-plot #chart {
-    flex: 1;
-    min-height: 500px;
+    width: 100%;
+    height: 400px;
 }
 
 #scatter-plot #chart svg {
