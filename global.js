@@ -9,7 +9,6 @@ let pages = [
 	{ url: '#page-projects', title: 'Projects', section: 'page-projects' },
 	{ url: '#page-resume', title: 'CV', section: 'page-resume' },
 	{ url: '#page-contact', title: 'Contact', section: 'page-contact' },
-	{ url: '#page-meta', title: 'Meta', section: 'page-meta' },
 	{ url: 'https://github.com/d4phan', title: 'GitHub' }
 ];
 
