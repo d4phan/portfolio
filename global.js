@@ -66,6 +66,30 @@ if (scrollContainer) {
 // Initial call to set current on page load
 updateCurrentNav();
 
+// Intersection Observer for fade-in animations on scroll
+const observerOptions = {
+	root: scrollContainer,
+	threshold: 0.1,
+	rootMargin: '0px 0px -50px 0px'
+};
+
+const fadeInObserver = new IntersectionObserver((entries) => {
+	entries.forEach(entry => {
+		if (entry.isIntersecting) {
+			entry.target.classList.add('visible');
+		}
+	});
+}, observerOptions);
+
+// Observe all direct children of page-section main elements
+document.querySelectorAll('.page-section main').forEach(main => {
+	Array.from(main.children).forEach((el, index) => {
+		// Add staggered delay based on index within parent
+		el.style.transitionDelay = `${index * 0.1}s`;
+		fadeInObserver.observe(el);
+	});
+});
+
 document.body.insertAdjacentHTML(
 	'afterbegin',
 	`
