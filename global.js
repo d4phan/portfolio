@@ -1,4 +1,4 @@
-console.log('IT'S ALIVE!');
+console.log('IT’S ALIVE!');
 
 function $$(selector, context = document) {
 	return Array.from(context.querySelectorAll(selector));
@@ -18,13 +18,6 @@ const BASE_PATH = (location.hostname === "localhost" || location.hostname === "1
 	: "/portfolio/";
 
 let nav = document.createElement('nav');
-nav.style.position = 'fixed';
-nav.style.top = '0';
-nav.style.left = '0';
-nav.style.right = '0';
-nav.style.zIndex = '1000';
-nav.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-nav.style.backdropFilter = 'blur(10px)';
 document.body.prepend(nav);
 
 for (let p of pages) {
@@ -49,28 +42,6 @@ for (let p of pages) {
 
 	nav.append(a);
 }
-
-// Scroll animations
-const observerOptions = {
-	root: null,
-	rootMargin: '0px',
-	threshold: 0.3
-};
-
-const sectionObserver = new IntersectionObserver((entries) => {
-	entries.forEach(entry => {
-		if (entry.isIntersecting) {
-			entry.target.querySelector('.section-content').style.animation = 'fadeInUp 0.8s ease-out forwards';
-		}
-	});
-}, observerOptions);
-
-document.addEventListener('DOMContentLoaded', () => {
-	const sections = document.querySelectorAll('.scroll-section');
-	sections.forEach(section => {
-		sectionObserver.observe(section);
-	});
-});
 
 document.body.insertAdjacentHTML(
 	'afterbegin',
