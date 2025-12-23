@@ -11,7 +11,7 @@ let data;
 let commits;
 
 async function loadData() {
-    const data = await d3.csv('loc.csv', (row) => ({
+    const data = await d3.csv('meta/loc.csv', (row) => ({
         ...row,
         line: Number(row.line),
         depth: Number(row.depth),
