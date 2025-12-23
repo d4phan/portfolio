@@ -9,112 +9,46 @@
 </head>
 <body>
 	<div class="scroll-container">
-		<!-- Home Page Section -->
-		<section class="page-section" id="page-home">
-			<main>
+		<section class="scroll-section" id="section-intro">
+			<div class="section-content">
 				<h1>Daniel Phan</h1>
+				<p class="subtitle">Data Science | Builder | Explorer</p>
+				<div class="scroll-indicator">
+					<span>Scroll to explore</span>
+					<div class="arrow-down"></div>
+				</div>
+			</div>
+		</section>
 
+		<section class="scroll-section" id="section-about">
+			<div class="section-content">
+				<h2>About Me</h2>
 				<div class="profile-content">
 					<img src="images/bas64997-1.jpg"
 						alt="Daniel Phan's profile photo"
 						class="profile-image">
-
 					<p class="bio">Hi, I'm Daniel and I love building things. I am a Data Science Major, aiming to get a career in tech when I graduate. I am into building plastic model kits and exploring in my free time. I enjoy working with data and creating solutions that make a difference.</p>
 				</div>
+			</div>
+		</section>
 
+		<!-- Section 3: GitHub Stats -->
+		<section class="scroll-section" id="section-stats">
+			<div class="section-content">
 				<h2>GitHub Stats</h2>
 				<div id="profile-stats"></div>
+			</div>
+		</section>
 
+		<!-- Section 4: Projects -->
+		<section class="scroll-section" id="section-projects">
+			<div class="section-content">
 				<h2>Latest Projects</h2>
 				<div class="projects"></div>
-			</main>
-		</section>
-
-		<!-- Projects Page Section -->
-		<section class="page-section" id="page-projects">
-			<main>
-				<h1 class="projects-title">Projects</h1>
-
-				<div class="container">
-					<svg id="projects-pie-plot" viewBox="-50 -50 100 100"></svg>
-					<ul class="legend"></ul>
-				</div>
-
-				<input
-					class="searchBar"
-					type="search"
-					aria-label="Search projects"
-					placeholder="🔍 Search projects…"
-				/>
-
-				<div class="projects-full"></div>
-			</main>
-		</section>
-
-		<!-- Resume Page Section -->
-		<section class="page-section" id="page-resume">
-			<main>
-				<header>
-					<h1>Daniel Phan</h1>
-					<p><a href="mailto:danielphan5740@gmail.com">danielphan5740@gmail.com</a></p>
-				</header>
-
-				<section>
-					<h2>Education</h2>
-					<article>
-						<h3>Bachelor of Science in Data Science</h3>
-						<p><strong>University of California, San Diego</strong></p>
-						<p>Expected <time datetime="2027">2027</time></p>
-					</article>
-				</section>
-
-				<section>
-					<h2>Work Experience</h2>
-					<article>
-						<header>
-							<h3>Support IT Analyst</h3>
-							<p><strong>Gordon Rees Scully Mansukhani LLP</strong></p>
-							<p><time datetime="2024-06">June 2024</time> - <time datetime="2024-09">September 2024</time></p>
-						</header>
-						<ul>
-							<li>Installed imaging softwares to laptops and images, showing proficiency in system installations</li>
-							<li>Processed and resolved support tickets efficiently, prioritizing tasks based on employee's request</li>
-							<li>Provided on-site assistance for hardware issues for employees, committing to maintaining functional operations for employees with their tasks</li>
-						</ul>
-					</article>
-				</section>
-			</main>
-		</section>
-
-		<!-- Contact Page Section -->
-		<section class="page-section" id="page-contact">
-			<main>
-				<h1>Contact</h1>
-				<p>Get in touch with me</p>
-
-				<form action="mailto:d4phan@ucsd.edu" method="POST" enctype="text/plain">
-					<label>
-						Email:
-						<input type="email" name="email" value="test@example.com">
-					</label>
-
-					<label>
-						Subject:
-						<input name="subject" value="Contact from website">
-					</label>
-
-					<label>
-						Message:
-						<textarea name="body">Hello, I'd like to get in touch...</textarea>
-					</label>
-
-					<button>Send</button>
-				</form>
-			</main>
+			</div>
 		</section>
 	</div>
 
 	<script src="index.js" type="module"></script>
-	<script src="projects/projects.js" type="module"></script>
 </body>
 </html>
