@@ -8,7 +8,6 @@ let pages = [
 	{ url: '#home', title: 'Home' },
 	{ url: '#projects', title: 'Projects' },
 	{ url: '#resume', title: 'CV' },
-	{ url: '#contact', title: 'Contact' },
 	{ url: '#meta', title: 'Meta' },
 	{ url: 'https://github.com/d4phan', title: 'GitHub' }
 ];
@@ -103,6 +102,30 @@ document.body.insertAdjacentHTML(
 	</label>
 	`
 );
+
+// Email popup functionality
+const emailToggle = document.getElementById('email-toggle');
+const emailPopup = document.getElementById('email-popup');
+const emailPopupClose = document.getElementById('email-popup-close');
+
+if (emailToggle && emailPopup) {
+	emailToggle.addEventListener('click', () => {
+		emailPopup.hidden = !emailPopup.hidden;
+	});
+
+	emailPopupClose?.addEventListener('click', () => {
+		emailPopup.hidden = true;
+	});
+
+	// Close popup when clicking outside
+	document.addEventListener('click', (e) => {
+		if (!emailPopup.hidden &&
+			!emailPopup.contains(e.target) &&
+			!emailToggle.contains(e.target)) {
+			emailPopup.hidden = true;
+		}
+	});
+}
 
 const select = document.querySelector('.color-scheme select');
 

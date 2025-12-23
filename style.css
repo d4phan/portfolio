@@ -148,6 +148,159 @@ nav a:hover {
     transition: none;
 }
 
+/* Social icons */
+.social-icons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: light-dark(rgba(0, 0, 0, 0.05), rgba(255, 255, 255, 0.1));
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.social-icon:hover {
+    background: var(--color-accent);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.social-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Email popup */
+.email-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2000;
+    animation: popupFadeIn 0.3s ease-out;
+}
+
+@keyframes popupFadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.email-popup-content {
+    background: light-dark(white, #1e1e1e);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    min-width: 280px;
+    position: relative;
+}
+
+.email-popup-content h3 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+
+.email-popup-content p {
+    margin-bottom: 1rem;
+    color: light-dark(#666, #aaa);
+}
+
+.email-popup-close {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.75rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: light-dark(#666, #aaa);
+    padding: 0;
+    line-height: 1;
+}
+
+.email-popup-close:hover {
+    color: light-dark(#333, #fff);
+}
+
+.email-link {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: var(--color-accent);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background 0.2s ease;
+}
+
+.email-link:hover {
+    background: #2aa3b8;
+}
+
+/* Commit details section */
+.commit-details {
+    background: light-dark(rgba(0, 0, 0, 0.03), rgba(255, 255, 255, 0.05));
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.commit-details h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+.commit-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.commit-stat {
+    text-align: center;
+}
+
+.commit-stat-label {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: light-dark(#666, #aaa);
+    margin-bottom: 0.25rem;
+}
+
+.commit-stat-value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.commit-stat-value.added {
+    color: #22c55e;
+}
+
+.commit-stat-value.deleted {
+    color: #ef4444;
+}
+
 h1, h2, h3, h4, h5, h6 {
     line-height: 1.1;
     text-wrap: balance;

@@ -214,9 +214,9 @@ function renderLanguageBreakdown(selection) {
     const selectedCommits = selection
         ? filteredCommits.filter(d => isCommitSelected(selection, d))
         : [];
-    
+
     const container = document.getElementById('language-breakdown');
-    
+
     if (selectedCommits.length === 0) {
         container.innerHTML = '';
         return;
@@ -239,6 +239,51 @@ function renderLanguageBreakdown(selection) {
             <dt>${language}</dt>
             <dd>${count} lines (${formatted})</dd>
         `;
+    }
+}
+
+function updateCommitDetails(commit) {
+    const detailsContainer = document.getElementById('commit-details');
+    const linesChanged = document.getElementById('lines-changed');
+    const linesAdded = document.getElementById('lines-added');
+    const linesDeleted = document.getElementById('lines-deleted');
+
+    if (!commit || !detailsContainer) return;
+
+    detailsContainer.hidden = false;
+
+    // Calculate line statistics from commit data
+    const lines = commit.lines || [];
+    const totalLines = lines.length;
+
+    // Count additions and deletions based on line types
+    let added = 0;
+    let deleted = 0;
+
+    lines.forEach(line => {
+        // Assuming lines have type information that indicates add/delete
+        // If not available, we'll estimate based on available data
+        if (line.type === 'added' || line.type === 'insert') {
+            added++;
+        } else if (line.type === 'deleted' || line.type === 'remove') {
+            deleted++;
+        }
+    });
+
+    // If no add/delete info, show total as changed
+    if (added === 0 && deleted === 0) {
+        added = totalLines;
+    }
+
+    linesChanged.textContent = totalLines;
+    linesAdded.textContent = `+${added}`;
+    linesDeleted.textContent = `-${deleted}`;
+}
+
+function hideCommitDetails() {
+    const detailsContainer = document.getElementById('commit-details');
+    if (detailsContainer) {
+        detailsContainer.hidden = true;
     }
 }
 
@@ -352,6 +397,7 @@ function renderScatterPlot(data, commits) {
         .attr('r', d => rScale(d.totalLines))
         .attr('fill', 'steelblue')
         .style('fill-opacity', 0.7)
+        .style('cursor', 'pointer')
         .on('mouseenter', (event, commit) => {
             d3.select(event.currentTarget).style('fill-opacity', 1);
             renderTooltipContent(commit);
@@ -361,6 +407,23 @@ function renderScatterPlot(data, commits) {
         .on('mouseleave', (event) => {
             d3.select(event.currentTarget).style('fill-opacity', 0.7);
             updateTooltipVisibility(false);
+        })
+        .on('click', (event, commit) => {
+            event.stopPropagation();
+            updateCommitDetails(commit);
+            // Also update language breakdown for this commit
+            const singleCommitLines = commit.lines || [];
+            const breakdown = d3.rollup(singleCommitLines, v => v.length, d => d.type);
+            const container = document.getElementById('language-breakdown');
+            container.innerHTML = '';
+            for (const [language, count] of breakdown) {
+                const proportion = count / singleCommitLines.length;
+                const formatted = d3.format('.1~%')(proportion);
+                container.innerHTML += `
+                    <dt>${language}</dt>
+                    <dd>${count} lines (${formatted})</dd>
+                `;
+            }
         });
 
     svg.call(d3.brush().on('start brush end', brushed));
@@ -408,6 +471,7 @@ function updateScatterPlot(data, commits) {
         .attr('r', d => rScale(d.totalLines))
         .attr('fill', 'steelblue')
         .style('fill-opacity', 0.7)
+        .style('cursor', 'pointer')
         .on('mouseenter', (event, commit) => {
             d3.select(event.currentTarget).style('fill-opacity', 1);
             renderTooltipContent(commit);
@@ -417,6 +481,23 @@ function updateScatterPlot(data, commits) {
         .on('mouseleave', (event) => {
             d3.select(event.currentTarget).style('fill-opacity', 0.7);
             updateTooltipVisibility(false);
+        })
+        .on('click', (event, commit) => {
+            event.stopPropagation();
+            updateCommitDetails(commit);
+            // Also update language breakdown for this commit
+            const singleCommitLines = commit.lines || [];
+            const breakdown = d3.rollup(singleCommitLines, v => v.length, d => d.type);
+            const container = document.getElementById('language-breakdown');
+            container.innerHTML = '';
+            for (const [language, count] of breakdown) {
+                const proportion = count / singleCommitLines.length;
+                const formatted = d3.format('.1~%')(proportion);
+                container.innerHTML += `
+                    <dt>${language}</dt>
+                    <dd>${count} lines (${formatted})</dd>
+                `;
+            }
         });
 }
 
