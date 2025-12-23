@@ -6,13 +6,34 @@
 
 html {
     accent-color: var(--color-accent);
+    scroll-behavior: smooth;
 }
 
 body {
     font: 100%/1.5 system-ui;
-    max-width: 100ch;
-    margin-inline: max(1em, (100% - 100ch) / 2);
+    margin: 0;
+    padding: 0;
+}
+
+/* Scroll Container for scroll-telling */
+.scroll-container {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
+
+/* Each page section */
+.page-section {
+    min-height: 100vh;
+    scroll-snap-align: start;
     padding: 2rem;
+    box-sizing: border-box;
+}
+
+.page-section main {
+    max-width: 100ch;
+    margin-inline: auto;
+    padding-top: 4rem;
 }
 
 nav {
@@ -20,6 +41,14 @@ nav {
     display: flex;
     margin-bottom: 2rem;
     border-bottom: 1px solid var(--border-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: light-dark(rgba(255, 255, 255, 0.95), rgba(30, 30, 30, 0.95));
+    backdrop-filter: blur(10px);
+    padding-inline: max(1em, (100% - 100ch) / 2);
 }
 
 nav a {
@@ -58,23 +87,27 @@ h1 {
     font-size: 400%; 
 }
 
-.projects {
+.projects,
+.projects-full {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
     gap: 1em;
 }
 
-.projects article {
+.projects article,
+.projects-full article {
     display: grid;
     grid-template-rows: subgrid;
     grid-row: span 3;
 }
 
-.projects article h2 {
+.projects article h2,
+.projects-full article h2 {
     margin: 0;
 }
 
-.projects article img {
+.projects article img,
+.projects-full article img {
     width: 100%;
     height: auto;
 }
