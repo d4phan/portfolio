@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Pokemon DP Pro';
+    src: url('font/pokemon-dp-pro.otf') format('opentype');
+}
+
 :root {
     color-scheme: light dark;
     --color-accent: #3bc3db;
@@ -747,6 +752,10 @@ circle.selected {
 
 .step a:hover {
     text-decoration: underline;
+}
+
+.bio {
+    font-family: 'Pokemon DP Pro', system-ui;
 }
 
 @media (max-width: 1024px) {
