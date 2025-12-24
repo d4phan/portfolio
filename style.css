@@ -1,6 +1,9 @@
 @font-face {
     font-family: 'Pokemon DP Pro';
-    src: url('font/pokemon-dp-pro.otf') format('opentype');
+    src: url('./font/pokemon-dp-pro.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 
 :root {
