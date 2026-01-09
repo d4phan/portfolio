@@ -1,74 +1,26 @@
 [
 	{
+		"title": "Climate Change Coastal Visualization",
+		"year": 2025,
+		"image": "images/finalproject.jpg",
+		"description": "Built scrollytelling webpage visualizing temperature projections for US coastal regions through 2100. Integrated climate data with D3.js map visualization and animated thermostat controls. Implemented prediction comparison feature allowing users to test intuition against projections."
+	},
+	{
 		"title": "Bikewatching",
 		"year": 2025,
 		"image": "images/bikewatch.jpg",
-		"description": "An interactive visualzation of Boston Bluebikes traffic patterns with time-based filtering, bike station activity, and bike lane routes acros Boston and Cambridge."
+		"description": "Developed interactive map visualization for bike-sharing data with real-time filtering by time of day. Implemented dynamic flow indicators showing departure and arrival patterns across bike stations. Built user controls for adjusting visualization balance between departures and arrivals."
 	},
 	{
-		"title": "Machine Learning Predictor",
-		"year": 2023,
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
-		"description": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-	},
-	{
-		"title": "Web Scraping Tool",
-		"year": 2022,
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
-		"description": "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."
-	},
-	{
-		"title": "Project 1",
-		"year": 2023,
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
-		"description": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum."
-	},
-	{
-		"title": "Project 2",
-		"year": 2021,
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
-		"description": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia."
-	},
-	{
-		"title": "Project 3",
-		"year": 2024,
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
-		"description": "Lorem ipsum dolor sit amet consectetur adipisicing elit tempor incididunt."
-	},
-	{
-		"title": "Final Project",
-		"year": 2022,
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
-		"description": "Ut labore et dolore magna aliqua enim ad minim veniam."
-	},
-	{
-		"title": "API Development Project",
+		"title": "Health Metric Dashboard",
 		"year": 2025,
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
-		"description": "Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo."
+		"image": "images/Dashboard 1.png",
+		"description": "Designed interactive Tableau dashboard integrating historical health data to visualize trends and insights. Implemented user-friendly toggles and filters enabling selective viewing of specific health metrics. Built accessibility-focused design with predictive analytics features for real-time caregiver insights."
 	},
 	{
-		"title": "Algorithm Optimization Study",
-		"year": 2023,
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
-		"description": "Consequat duis aute irure dolor in reprehenderit in voluptate velit."
-	},
-	{
-		"title": "Cloud Computing Solution",
-		"year": 2024,
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
-		"description": "Esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat."
-	},
-	{
-		"title": "Neural Network Model",
+		"title": "NBA Superstar Points Predictor",
 		"year": 2025,
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
-		"description": "Cupidatat non proident sunt in culpa qui officia deserunt mollit anim."
-	},
-	{
-		"title": "Portfolio Website Build",
-		"year": 2025,
-		"image": "https://vis-society.github.io/labs/2/images/empty.svg",
-		"description": "Id est laborum sed ut perspiciatis unde omnis iste natus error."
+		"image": "images/NBA sports.png",
+		"description": "Developed XGBoost regression model forecasting point totals using 22,000+ games and 10 statistical features. Incorporated player efficiency metrics, matchup data, and contextual game variables for nuanced predictions. Automated data pipeline for cleaning, merging, and analysis with cross-validation for model reliability."
 	}
 ]
