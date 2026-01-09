@@ -769,27 +769,186 @@ circle.selected {
         padding-left: 0;
         padding-right: 0;
     }
-    
+
     #scatter-story {
         flex: none;
         max-height: 400px;
         margin-bottom: 2rem;
     }
-    
+
     #scatter-plot {
         position: relative;
         height: 600px;
     }
-    
+
     .step {
         margin-bottom: 2vh;
     }
-    
+
     .step:first-child {
         margin-top: 0;
     }
-    
+
     .step:last-child {
         margin-bottom: 2vh;
     }
+}
+
+/* Resume folder styles */
+.resume-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    position: relative;
+}
+
+.folder-wrapper {
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.folder-wrapper:hover {
+    transform: translateY(-10px);
+}
+
+.folder-icon {
+    width: 200px;
+    height: 200px;
+    position: relative;
+}
+
+.folder-body {
+    fill: light-dark(#ffc107, #e89b00);
+    transition: fill 0.3s ease;
+}
+
+.folder-tab {
+    fill: light-dark(#ffb300, #d68a00);
+    transition: fill 0.3s ease;
+}
+
+.folder-wrapper:hover .folder-body {
+    fill: light-dark(#ffca28, #ffb300);
+}
+
+.folder-wrapper:hover .folder-tab {
+    fill: light-dark(#ffc107, #e89b00);
+}
+
+.folder-label {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: light-dark(#333, #ddd);
+}
+
+.resume-preview {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 130px;
+    background: white;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+    padding: 8px;
+    font-size: 6px;
+    line-height: 1.2;
+    overflow: hidden;
+}
+
+.folder-wrapper:hover .resume-preview {
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+.resume-preview-line {
+    height: 4px;
+    background: #333;
+    margin-bottom: 3px;
+    border-radius: 2px;
+}
+
+.resume-preview-line:nth-child(1) {
+    width: 60%;
+    margin: 0 auto 5px;
+}
+
+.resume-preview-line:nth-child(2),
+.resume-preview-line:nth-child(3) {
+    width: 80%;
+}
+
+.resume-preview-line:nth-child(4) {
+    width: 40%;
+    margin-top: 5px;
+}
+
+.resume-content {
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    pointer-events: none;
+    width: 100%;
+    max-width: 100%;
+}
+
+.resume-content.visible {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+}
+
+.resume-pdf {
+    width: 100%;
+    height: 85vh;
+    border: 2px solid light-dark(#ddd, #444);
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    background: white;
+}
+
+.folder-wrapper.hidden {
+    opacity: 0;
+    transform: scale(0.8);
+    pointer-events: none;
+}
+
+.close-resume-btn {
+    position: sticky;
+    top: 4rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 100;
+    margin-bottom: 2rem;
+    padding: 0.75em 2em;
+    background: var(--color-accent);
+    color: white;
+    border: none;
+    border-radius: 0.5em;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.close-resume-btn:hover {
+    background: var(--color-accent-light);
+    color: #333;
+    transform: translateX(-50%) translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.close-resume-btn.hidden {
+    opacity: 0;
+    pointer-events: none;
 }

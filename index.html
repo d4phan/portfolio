@@ -73,35 +73,38 @@
 		<!-- Resume Section -->
 		<section class="page-section" id="resume">
 			<main>
-				<header>
-					<h1>Daniel Phan</h1>
-					<p><a href="mailto:danielphan5740@gmail.com">danielphan5740@gmail.com</a></p>
-				</header>
+				<div class="resume-container">
+					<!-- Folder Icon -->
+					<div class="folder-wrapper">
+						<svg class="folder-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+							<!-- Folder tab -->
+							<path class="folder-tab" d="M 20 60 L 20 50 Q 20 45 25 45 L 80 45 L 90 60 Z"/>
+							<!-- Folder body -->
+							<path class="folder-body" d="M 20 60 L 20 170 Q 20 175 25 175 L 175 175 Q 180 175 180 170 L 180 65 Q 180 60 175 60 Z"/>
+							<!-- Folder line detail -->
+							<line x1="20" y1="80" x2="180" y2="80" stroke="rgba(0,0,0,0.1)" stroke-width="2"/>
+						</svg>
+						<p class="folder-label">My Resume</p>
 
-				<section>
-					<h2>Education</h2>
-					<article>
-						<h3>Bachelor of Science in Data Science</h3>
-						<p><strong>University of California, San Diego</strong></p>
-						<p>Expected <time datetime="2027">2027</time></p>
-					</article>
-				</section>
+						<!-- Resume preview on hover -->
+						<div class="resume-preview">
+							<div class="resume-preview-line"></div>
+							<div class="resume-preview-line"></div>
+							<div class="resume-preview-line"></div>
+							<div class="resume-preview-line"></div>
+							<div class="resume-preview-line"></div>
+							<div class="resume-preview-line"></div>
+						</div>
+					</div>
 
-				<section>
-					<h2>Work Experience</h2>
-					<article>
-						<header>
-							<h3>Support IT Analyst</h3>
-							<p><strong>Gordon Rees Scully Mansukhani LLP</strong></p>
-							<p><time datetime="2024-06">June 2024</time> - <time datetime="2024-09">September 2024</time></p>
-						</header>
-						<ul>
-							<li>Installed imaging softwares to laptops and images, showing proficiency in system installations</li>
-							<li>Processed and resolved support tickets efficiently, prioritizing tasks based on employee's request</li>
-							<li>Provided on-site assistance for hardware issues for employees, committing to maintaining functional operations for employees with their tasks</li>
-						</ul>
-					</article>
-				</section>
+					<!-- Close button (hidden initially) -->
+					<button class="close-resume-btn hidden">← Back to Folder</button>
+
+					<!-- PDF resume viewer (hidden initially) -->
+					<div class="resume-content">
+						<iframe src="resume/DanielPhan_Resume.pdf" class="resume-pdf" title="Daniel Phan's Resume"></iframe>
+					</div>
+				</div>
 			</main>
 		</section>
 
@@ -179,5 +182,6 @@
 	<script src="index.js" type="module"></script>
 	<script src="projects/projects.js" type="module"></script>
 	<script src="meta/main.js" type="module"></script>
+	<script src="resume.js"></script>
 </body>
 </html>
