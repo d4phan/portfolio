@@ -1,8 +1,8 @@
 import { fetchJSON, renderProjects } from '../global.js';
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 
-const projects = await fetchJSON('../lib/projects.json');
-const projectsContainer = document.querySelector('.projects');
+const projects = await fetchJSON('./lib/projects.json');
+const projectsContainer = document.querySelector('.projects-full');
 const projectsTitle = document.querySelector('.projects-title');
 
 let customColors = ['#ffb3ba', '#e74c3c', '#388e3c', '#b5e7a0', '#1976d2', '#aec6cf'];

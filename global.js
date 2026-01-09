@@ -1,47 +1,92 @@
-console.log('IT’S ALIVE!');
+console.log('IT\'S ALIVE!');
 
 function $$(selector, context = document) {
 	return Array.from(context.querySelectorAll(selector));
 }
 
 let pages = [
-	{ url: '', title: 'Home' },
-	{ url: 'projects/', title: 'Projects' },
-	{ url: 'resume/', title: 'CV' },
-	{ url: 'contact/', title: 'Contact' },
-	{ url: 'meta/', title: 'Meta' },
-	{ url: 'https://github.com/d4phan', title: 'GitHub' }
+	{ url: '#home', title: 'Home' },
+	{ url: '#projects', title: 'Projects' },
+	{ url: '#resume', title: 'CV' },
+	{ url: '#meta', title: 'Meta' }
 ];
-
-const BASE_PATH = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
-	? "/"
-	: "/portfolio/";
 
 let nav = document.createElement('nav');
 document.body.prepend(nav);
 
 for (let p of pages) {
-	let url = p.url;
-	let title = p.title;
-
-	if (!url.startsWith('http')) {
-		url = BASE_PATH + url;
-	}
-
 	let a = document.createElement('a');
-	a.href = url;
-	a.textContent = title;
+	a.href = p.url;
+	a.textContent = p.title;
 
-	if (a.host === location.host && a.pathname === location.pathname) {
-		a.classList.add('current');
-	}
-
-	if (a.host !== location.host) {
+	if (p.url.startsWith('http')) {
 		a.target = "_blank";
+	} else {
+		// Smooth scroll to section when clicking nav links
+		a.addEventListener('click', (e) => {
+			e.preventDefault();
+			const sectionId = p.url.replace('#', '');
+			const section = document.getElementById(sectionId);
+			if (section) {
+				section.scrollIntoView({ behavior: 'smooth' });
+			}
+		});
 	}
 
 	nav.append(a);
 }
+
+// Update current nav link based on scroll position
+function updateCurrentNav() {
+	const sections = document.querySelectorAll('.page-section');
+	const scrollContainer = document.querySelector('.scroll-container');
+
+	sections.forEach(section => {
+		const rect = section.getBoundingClientRect();
+		// Check if section is mostly in view
+		if (rect.top >= -100 && rect.top <= 150) {
+			// Remove current from all links
+			nav.querySelectorAll('a').forEach(link => link.classList.remove('current'));
+			// Add current to matching link
+			const matchingLink = nav.querySelector(`a[href="#${section.id}"]`);
+			if (matchingLink) {
+				matchingLink.classList.add('current');
+			}
+		}
+	});
+}
+
+// Listen for scroll on the scroll container
+const scrollContainer = document.querySelector('.scroll-container');
+if (scrollContainer) {
+	scrollContainer.addEventListener('scroll', updateCurrentNav);
+}
+// Initial call to set current on page load
+updateCurrentNav();
+
+// Intersection Observer for fade-in animations on scroll
+const observerOptions = {
+	root: scrollContainer,
+	threshold: 0.1,
+	rootMargin: '0px 0px -50px 0px'
+};
+
+const fadeInObserver = new IntersectionObserver((entries) => {
+	entries.forEach(entry => {
+		if (entry.isIntersecting) {
+			entry.target.classList.add('visible');
+		}
+	});
+}, observerOptions);
+
+// Observe all direct children of page-section main elements
+document.querySelectorAll('.page-section main').forEach(main => {
+	Array.from(main.children).forEach((el, index) => {
+		// Add staggered delay based on index within parent
+		el.style.transitionDelay = `${index * 0.1}s`;
+		fadeInObserver.observe(el);
+	});
+});
 
 document.body.insertAdjacentHTML(
 	'afterbegin',
